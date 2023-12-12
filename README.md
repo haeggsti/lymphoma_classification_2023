@@ -1,1 +1,5 @@
 # lymphoma_classification_2023
+
+Licence
+Creative_Commons_NonCommercial_license
+https://en.wikipedia.org/wiki/Creative_Commons_NonCommercial_license
