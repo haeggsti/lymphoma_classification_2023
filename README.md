@@ -30,7 +30,8 @@ The codes are run using PyTorch.
 ```
 * `convergence_split*_run*.csv`: file containing run of the epochs (epoch, loss, auc,...). Will be created upon running `train.py`.
 * `checkpoint_split*_run*.pth`: file containing the checkpoint data (state_dict etc) of your model. Will be created upon running `train.py`, and overwritten with the latest epoch every iteration.
-* `pred_split*_run*.csv`: file containing inference model predictions when running `predict.py`.
+* `pred_split*_run*.csv`: file containing inference model predictions. Will be created when running `predict.py`.
+* `best_run.csv`: file containing ranked results (from convergence files) for all N trained models. Will be created when running `find_best_model.py`.
 
 # How to run
 1. Create dataframe according to template above `data.csv` (you can name the file however you want).
