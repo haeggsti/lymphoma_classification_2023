@@ -35,7 +35,7 @@ The codes are run in Pytorch.
 6. Analyze the predictions on e.g. the top-10 models.
 
 # Trained models
-Downloadable checkpoints of the top-10 trained 2d LARS models is found here: [link](https://drive.google.com/drive/folders/1ObjxwcrKxtS3VubS8oOfCxGOPvHXmIaA?usp=sharing).
+Downloadable checkpoints of the top-10 trained 2d LARS models are found here: [link](https://drive.google.com/drive/folders/1ObjxwcrKxtS3VubS8oOfCxGOPvHXmIaA?usp=sharing).
 
 # Reference
 Cite this work using:
