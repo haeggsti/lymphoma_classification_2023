@@ -3,8 +3,8 @@ This is the repository for the modified code and trained model LARS-max/avg pres
 
 **I. Häggström et al., _Deep learning for [18F]fluorodeoxyglucose-PET-CT classification in patients with lymphoma: a dual-centre retrospective analysis_, the Lancet Digital Health (2023)**
 
-# Dependencies
-The codes are run in Pytorch.
+# Framework
+The codes are run using PyTorch.
 
 # Description of files
 * `train.py`: script to train the model (here set to 2d ResNet34). Give appropriate arguments to the function (use `--help`).
