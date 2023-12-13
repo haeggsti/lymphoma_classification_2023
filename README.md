@@ -31,6 +31,9 @@ This is the repository for the modified code and trained model LARS-max/avg pres
 5. Run inference on test set by `>> python predict.py <your arguments>`. You decide which of your N models to run and the function uses the file `best_run.csv` from the previous step. This will save prediction file `pred_split*_run*.csv` in your specified output folder.
 6. Analyze the predictions on e.g. the top-10 models.
 
+# Trained models
+Downloadable checkpoints of the top-10 trained 2d LARS models is found here: [link](https://drive.google.com/drive/folders/1ObjxwcrKxtS3VubS8oOfCxGOPvHXmIaA?usp=sharing).
+
 # Reference
 Cite this work using:
 
