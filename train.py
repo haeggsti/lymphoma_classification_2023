@@ -15,11 +15,11 @@ import time
 parser = argparse.ArgumentParser(description='PET lymphoma classification')
 
 #I/O PARAMS
-parser.add_argument('--output', type=str, default='.', help='name of output folder')
+parser.add_argument('--output', type=str, default='results', help='name of output folder (default: "results")')
 
 #MODEL PARAMS
 parser.add_argument('--normalize', action='store_true', default=False, help='normalize images')
-parser.add_argument('--checkpoint', default='', type=str, help='model checkpoint if any')
+parser.add_argument('--checkpoint', default='', type=str, help='model checkpoint if any (default: none)')
 parser.add_argument('--resume', action='store_true', default=False, help='resume from checkpoint')
 
 #OPTIMIZATION PARAMS
@@ -30,13 +30,13 @@ parser.add_argument('--momentum', default=0.9, type=float, help='momentum (defau
 parser.add_argument('--wd', default=1e-4, type=float, help='weight decay (default: 1e-4)')
 
 #TRAINING PARAMS
-parser.add_argument('--split_index', default=0, type=int, metavar='INT', choices=list(range(0,20)),help='which split index')   
-parser.add_argument('--run', default=1, type=int, metavar='INT', help='repetition run with same settings')   
+parser.add_argument('--split_index', default=0, type=int, metavar='INT', choices=list(range(0,20)),help='which split index (default: 0)')   
+parser.add_argument('--run', default=1, type=int, metavar='INT', help='repetition run with same settings (default: 1)')   
 parser.add_argument('--batch_size', type=int, default=50, help='how many images to sample per slide (default: 50)')
 parser.add_argument('--nepochs', type=int, default=40, help='number of epochs (default: 40)')
 parser.add_argument('--workers', default=10, type=int, help='number of data loading workers (default: 10)')
 parser.add_argument('--augm', default=0, type=int, choices=[0,1,2,3,12,4,5,14,34,45], help='augmentation procedure 0=none,1=flip,2=rot,3=flip LR, 12=flip+rot, 4=scale, 5=noise, 14=flip+scale, 34=flipLR+scale, 45=scale+noise (default: 0)')
-parser.add_argument('--balance', action='store_true', default=False, help='balance dataset')
+parser.add_argument('--balance', action='store_true', default=False, help='balance dataset (balance loss)')
 parser.add_argument('--lr_scheduler', action='store_true',default=False, help='decrease LR on platau')
 parser.add_argument('--early_stopping', action='store_true',default=False, help='use early stopping')
 
