@@ -30,7 +30,7 @@ parser.add_argument('--momentum', default=0.9, type=float, help='momentum (defau
 parser.add_argument('--wd', default=1e-4, type=float, help='weight decay (default: 1e-4)')
 
 #TRAINING PARAMS
-parser.add_argument('--seed_index', default=0, type=int, metavar='INT', choices=list(range(0,20)),help='which seed split index')   
+parser.add_argument('--split_index', default=0, type=int, metavar='INT', choices=list(range(0,20)),help='which split index')   
 parser.add_argument('--run', default=1, type=int, metavar='INT', help='repetition run with same settings')   
 parser.add_argument('--batch_size', type=int, default=50, help='how many images to sample per slide (default: 50)')
 parser.add_argument('--nepochs', type=int, default=40, help='number of epochs (default: 40)')
@@ -66,7 +66,7 @@ def main():
         model_dict.update(pretrained_dict)
         model.load_state_dict(model_dict)
     if args.resume:
-        ch = torch.load( os.path.join(args.output,'checkpoint_seed'+str(args.seed_index)+'_run'+str(args.run)+'.pth') )
+        ch = torch.load( os.path.join(args.output,'checkpoint_split'+str(args.split_index)+'_run'+str(args.run)+'.pth') )
         model_dict = model.state_dict()
         pretrained_dict = {k: v for k, v in ch['state_dict'].items() if k in model_dict}
         print('Loaded [{}/{}] keys from checkpoint'.format(len(pretrained_dict),len(model_dict)))
@@ -108,7 +108,7 @@ def main():
         transform = transforms.Compose([scale,noise])
     
     ### Set datasets
-    train_dset,trainval_dset,val_dset,_,balance_weight_neg_pos = dataset.get_datasets_singleview(transform,args.normalize,args.balance,args.seed_index)
+    train_dset,trainval_dset,val_dset,_,balance_weight_neg_pos = dataset.get_datasets_singleview(transform,args.normalize,args.balance,args.split_index)
     print('Datasets train:{}, val:{}'.format(len(train_dset.df),len(val_dset.df))) 
     
     ### Set loss criterion
@@ -143,7 +143,7 @@ def main():
     val_loader = torch.utils.data.DataLoader(val_dset, batch_size=args.batch_size, shuffle=False, num_workers=args.workers)
     
     ### Set output files
-    convergence_name = 'convergence_seed'+str(args.seed_index)+'_run'+str(args.run)+'.csv'
+    convergence_name = 'convergence_split'+str(args.split_index)+'_run'+str(args.run)+'.csv'
     if not args.resume:
         fconv = open(os.path.join(args.output,convergence_name), 'w')
         fconv.write('epoch,split,metric,value\n')
@@ -200,7 +200,7 @@ def main():
             'auc': val_auc,
         }
         ### Save checkpoint
-        torch.save(obj, os.path.join(args.output,'checkpoint_seed'+str(args.seed_index)+'_run'+str(args.run)+'.pth'))
+        torch.save(obj, os.path.join(args.output,'checkpoint_split'+str(args.split_index)+'_run'+str(args.run)+'.pth'))
         
         ### Early stopping
         if args.lr_scheduler:

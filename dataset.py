@@ -13,20 +13,20 @@ from scipy import interpolate
 data_path_img = '<path-to-binary-image-files>'
 data_file     = '<path-and_name-of-csv-datafile>'
 
-def get_datasets_singleview(transform=None, norm=None, balance=False, seed_index=0):
-    seedsplit = 'split'+str(seed_index)
+def get_datasets_singleview(transform=None, norm=None, balance=False, split_index=0):
+    split = 'split'+str(split_index)
     df = pd.read_csv(data_file)
     # Balance weight
     weight_neg_pos = [1-(df.target==0).sum()/len(df), 1-(df.target==1).sum()/len(df)]    
     # Read split
-    df_train = df[df[seedsplit]=='train'].drop(df.filter(regex='split').columns,axis=1)
+    df_train = df[df[split]=='train'].drop(df.filter(regex='split').columns,axis=1)
     train_dset = dataset_singleview(df_train, transform=transform, norm=norm)
     trainval_dset = dataset_singleview_center(df_train, transform=None, norm=norm)
     # Val split
-    df_val = df[df[seedsplit]=='val'].drop(df.filter(regex='split').columns,axis=1)
+    df_val = df[df[split]=='val'].drop(df.filter(regex='split').columns,axis=1)
     val_dset = dataset_singleview_center(df_val, transform=None, norm=norm)
     # Test split
-    df_test = df[df[seedsplit]=='test'].drop(df.filter(regex='split').columns,axis=1)
+    df_test = df[df[split]=='test'].drop(df.filter(regex='split').columns,axis=1)
     test_dset = dataset_singleview_center(df_test, transform=None, norm=norm)
     return train_dset,trainval_dset,val_dset,test_dset,weight_neg_pos
 
@@ -63,7 +63,7 @@ def clip_and_normalize_SUVimage(img):
 
 def get_image(df, transform, norm):
     image_size = 310
-    name = glob.glob(os.path.join(data_path_img,'{}.bin'.format(df.filename)))
+    name = glob.glob(os.path.join(data_path_img,df.filename))
     if not name:
         print('File not found:',name)
     img  = np.fromfile(os.path.join(data_path_img, name[0]), dtype='float32')
@@ -84,7 +84,7 @@ def get_image(df, transform, norm):
     
 def get_image_center(df, transform, norm):
     image_size = 310
-    name = glob.glob(os.path.join(data_path_img,'{}.bin'.format(df.filename)))
+    name = glob.glob(os.path.join(data_path_img,df.filename))
     if not name:
         print('File not found:',name)
     img  = np.fromfile(os.path.join(data_path_img, name[0]), dtype='float32')
