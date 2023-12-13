@@ -1,7 +1,9 @@
 # Lymphoma Classification 2023
 This is the repository for the modified code and trained model LARS-max/avg presented in the paper
 
-**I. Häggström et al., _Deep learning for [18F]fluorodeoxyglucose-PET-CT classification in patients with lymphoma: a dual-centre retrospective analysis_, the Lancet Digital Health (2023)**
+**_Deep learning for [18F]fluorodeoxyglucose-PET-CT classification in patients with lymphoma: a dual-centre retrospective analysis_**
+by **I. Häggström et al.**
+published in **the Lancet Digital Health (2023)**
 
 # Framework
 The codes are run using PyTorch.
