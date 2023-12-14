@@ -48,6 +48,6 @@ Downloadable checkpoints of the top-10 trained 2d LARS models are found here: [l
 Cite this work using:
 
 # License for use
-The IP rights of the model is owned by Memorial Sloan Kettering Cancer Center, New York, NY, USA.
+The IP rights of the model is owned by Memorial Sloan Kettering Cancer Center, New York, NY, USA.\
 Sharing is done under the Creative Commons Non-Commercial license as seen in the file [LICENSE-CC-BY-NC-4.0.md](LICENSE-CC-BY-NC-4.0.md).\
 Read more at https://creativecommons.org/licenses/by-nc/4.0/.
