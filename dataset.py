@@ -121,10 +121,10 @@ class dataset_singleview(torch.utils.data.Dataset):
         return auc, ber, fpr, fnr
     
     def __getitem__(self, index): 
-        tmp = self.df.iloc[index]
+        df = self.df.iloc[index]
         # Read image
-        img = get_image(tmp.filename, self.transform, self.norm)
-        return img, tmp.target
+        img = get_image(df, self.transform, self.norm)
+        return img, df.target
     
     def __len__(self):
         return len(self.df)
@@ -147,10 +147,10 @@ class dataset_singleview_center(torch.utils.data.Dataset):
         return auc, ber, fpr, fnr
     
     def __getitem__(self, index): 
-        tmp = self.df.iloc[index]
+        df = self.df.iloc[index]
         # Read image
-        img = get_image_center(tmp.filename, self.transform, self.norm)
-        return img, tmp.target
+        img = get_image_center(df, self.transform, self.norm)
+        return img, df.target
     
     def __len__(self):
         return len(self.df)
