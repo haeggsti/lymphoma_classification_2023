@@ -42,7 +42,7 @@ The codes are run using PyTorch.
 6. Analyze the predictions by grouping predictions on `scan_id` and aggregating by mean or max (LARS-avg or LARS-max), and averaging the final result for the top-10 models.
 
 # Trained models
-Downloadable checkpoints of the top-10 trained 2d LARS models are found here: [link](https://drive.google.com/drive/folders/1ObjxwcrKxtS3VubS8oOfCxGOPvHXmIaA?usp=sharing).
+Downloadable checkpoints of top-10 trained models are found here: [link](https://drive.google.com/drive/folders/1ObjxwcrKxtS3VubS8oOfCxGOPvHXmIaA?usp=sharing).
 
 # Cite this work
 Cite this work using:
