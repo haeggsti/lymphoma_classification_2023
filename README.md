@@ -4,7 +4,7 @@ This is the repository for the modified and reduced code and trained model LARS 
 "_Deep learning for [18F]fluorodeoxyglucose-PET-CT classification in patients with lymphoma: a dual-centre retrospective analysis_", 
 by I. Häggström et al., published in The Lancet Digital Health (2023).
 
-The code is for LARS-max/avg.
+The code is for LARS-avg/max.
 
 # Framework
 The codes are run using PyTorch.
