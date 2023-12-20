@@ -12,6 +12,7 @@ from scipy import interpolate
 
 data_path_img = '<path-to-binary-image-files>'
 data_file     = '<path-and_name-of-csv-datafile>'
+image_size    = 310 # this is the size (310x310) of the MIP images used in the paper. Adjust to fit your images.
 
 def get_datasets_singleview(transform=None, norm=None, balance=False, split_index=0):
     split = 'split'+str(split_index)
@@ -62,7 +63,6 @@ def clip_and_normalize_SUVimage(img):
     return (img-mu)/std
 
 def get_image(df, transform, norm):
-    image_size = 310
     name = glob.glob(os.path.join(data_path_img,df.filename))
     if not name:
         print('File not found:',name)
@@ -83,7 +83,6 @@ def get_image(df, transform, norm):
     return img
     
 def get_image_center(df, transform, norm):
-    image_size = 310
     name = glob.glob(os.path.join(data_path_img,df.filename))
     if not name:
         print('File not found:',name)
