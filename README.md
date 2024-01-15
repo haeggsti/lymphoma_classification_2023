@@ -48,7 +48,7 @@ The codes are run using PyTorch.
 Downloadable checkpoints of top-10 trained models are found here: [link](https://drive.google.com/drive/folders/1V-hhATi3zaqAiVyZ8_hgE3zhtSdt2HbV?usp=sharing).
 
 # Cite this work
-Cite this work using:
+Cite this work using: [BibTeX](Häggström2023.bib)
 
 # License for use
 The IP rights of the model is owned by Memorial Sloan Kettering Cancer Center, New York, NY, USA.\
